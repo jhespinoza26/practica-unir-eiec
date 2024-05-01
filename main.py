@@ -5,6 +5,7 @@ Organization: UNIR
 
 import os
 import sys
+from deep_translator import GoogleTranslator
 
 DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
@@ -20,6 +21,11 @@ def sort_list(items, order):
 
 def remove_duplicates_from_list(items):
     return list(set(items))
+
+def traducir_lista(items):
+    traductor = GoogleTranslator(source='es', target='en')
+    resultado = traductor.translate_batch(items)
+    return resultado
 
 
 if __name__ == "__main__":
@@ -47,6 +53,7 @@ if __name__ == "__main__":
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
 
-    print("Ordenar la lista ascendente(asc) o descendente(desc)")
-    orden = input()
-    print(sort_list(word_list, orden))
+
+    print("Texto de la lista ordenado: ", sort_list(word_list))
+    print("Texto de la lista traducido: " , traducir_lista(sort_list(word_list)))
+

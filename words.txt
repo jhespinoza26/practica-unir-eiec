@@ -1,0 +1,10 @@
+perro
+casa
+arbol
+computadora
+libro
+lapiz
+ventana
+monte
+guitarra
+flor
