@@ -10,11 +10,12 @@ DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
 
 
-def sort_list(items, ascending=True):
+def sort_list(items, order):
     if not isinstance(items, list):
         raise RuntimeError(f"No puede ordenar {type(items)}")
 
-    return sorted(items, reverse=(not ascending))
+    asc = True if order == "asc" else False
+    return sorted(items, reverse=(not asc))
 
 
 def remove_duplicates_from_list(items):
@@ -46,4 +47,6 @@ if __name__ == "__main__":
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
 
-    print(sort_list(word_list))
+    print("Ordenar la lista ascendente(asc) o descendente(desc)")
+    orden = input()
+    print(sort_list(word_list, orden))
